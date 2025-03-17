@@ -12,9 +12,13 @@ export default function LoginFrame () {
                 Log In 
             </div>
             <hr className="text-teal-600 mb-2 border-2 w-[80%]" />
-            <div className="text-teal-600 w-full h-[80px] text-sm flex justify-start ml-10 items-center">
-                - If you don't have an account , SignIn  <br /> - please enter your username & password 
-            </div>
+
+            <details className="collapse  pl-2">
+                <summary className="collapse-title text-teal-700 duration-500 ">How do I create an account?</summary>
+                <div className="collapse-content  text-teal-600 text-sm">
+                    Click the "Sign Ip" button in the top right corner and follow the registration process.
+                </div>
+            </details>
             
             <Input label="User Name" />
             <InputPassword />
