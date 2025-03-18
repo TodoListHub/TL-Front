@@ -1,3 +1,4 @@
+import Collapse from "./collapse";
 import Input from "./Input";
 import InputPassword from "./InputPassword";
 import SubmitBotton from "./SubmitBotton";
@@ -13,13 +14,8 @@ export default function LoginFrame () {
             </div>
             <hr className="text-teal-600 mb-2 border-2 w-[80%]" />
 
-            <details className="collapse  pl-2">
-                <summary className="collapse-title text-teal-700 duration-500 ">How do I create an account?</summary>
-                <div className="collapse-content  text-teal-600 text-sm">
-                    Click the "Sign Ip" button in the top right corner and follow the registration process.
-                </div>
-            </details>
             
+            <Collapse />
             <Input label="User Name" />
             <InputPassword />
             <SubmitBotton />

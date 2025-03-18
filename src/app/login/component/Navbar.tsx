@@ -10,7 +10,8 @@ export default function Navbar(){
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
               <li><a className="text-teal-600 bg-gray-200 mr-1 border">Sign In </a></li>
-              <li><a className="text-teal-600 bg-gray-200 border">Home </a></li>
+              <li><a className="text-teal-600 bg-gray-200 mr-1 border">Log In with Email  </a></li>
+              <li><a className="text-teal-600 bg-gray-200 border">Forget Password </a></li>
             </ul>
           </div>
       </div>
