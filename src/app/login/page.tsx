@@ -1,6 +1,6 @@
 "use client"
 import LoginFrame from "./component/LoginFrame";
-import NameInput from "./component/Input";
+
 import Navbar from "./component/Navbar";
 
 export default function LoginMainFrame() {

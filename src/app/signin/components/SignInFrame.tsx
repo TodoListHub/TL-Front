@@ -1,5 +1,5 @@
 
-import Collapse from "../../login/component/collapse";
+
 import Input from "../../login/component/Input";
 import InputPassword from "../../login/component/InputPassword";
 import SubmitBotton from "../../login/component/SubmitBotton";

@@ -1,13 +1,8 @@
 "Use client"
-import Mainframe from "./login/page"
+import { redirect } from "next/navigation";
 
 
 export default function Home() {
-  return (
-    <div className="h-screen w-screen bg-white flex justify-center items-center">
-
-        
-      
-    </div>
-  );
+  redirect("/login")
+  return null
 }

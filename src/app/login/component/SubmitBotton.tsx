@@ -1,8 +1,6 @@
 "use client";
-import { BottomNavigation } from "@mui/material";
-import Stack from '@mui/material/Stack';
+
 import Button from '@mui/material/Button';
-import Input from "./Input";
 import { teal } from "@mui/material/colors";
 
 
