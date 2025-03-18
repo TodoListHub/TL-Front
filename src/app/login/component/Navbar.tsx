@@ -19,7 +19,8 @@ export default function Navbar( {option1} : {option1 : string} ){
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
-              <li><a onClick={RouteHandler} className="text-teal-600 bg-gray-200 mr-1 border"> {`${option1}`} </a></li>
+              <li><a onClick={RouteHandler} className="text-teal-600 bg-gray-200 mr-1 border">  {`${option1}`} </a></li>
+              
               <li className={`${pathname==="/login" ? "block" : "hidden" }`} ><a className="text-teal-600 bg-gray-200 mr-1 border">Log In with Email  </a></li>
               <li className={`${pathname==="/login" ? "block" : "hidden" }`}><a className="text-teal-600 bg-gray-200 border">Forget Password </a></li>
             </ul>

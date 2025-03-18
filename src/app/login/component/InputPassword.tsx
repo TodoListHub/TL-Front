@@ -13,7 +13,7 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-export default function InputPassword() {
+export default function InputPassword( {title} : {title : string}) {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -28,9 +28,9 @@ export default function InputPassword() {
 
   return (
 
-    <FormControl sx={{ m: 1, width: '90%' }} variant="standard" >
+    <FormControl sx={{ marginTop: 2, width: '90%' }} variant="standard" >
     <InputLabel sx={{color: "teal",'&.Mui-focused': {color: 'teal'}}}
-                htmlFor="standard-adornment-password">Password</InputLabel>
+                htmlFor="standard-adornment-password">{title}</InputLabel>
     <Input
       id="standard-adornment-password"
       type={showPassword ? 'text' : 'password'}
