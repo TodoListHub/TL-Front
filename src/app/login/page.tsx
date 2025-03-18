@@ -1,11 +1,14 @@
+"use client"
 import LoginFrame from "./component/LoginFrame";
 import NameInput from "./component/Input";
 import Navbar from "./component/Navbar";
 
-export default function MainFrame() {
+export default function LoginMainFrame() {
+
   return (
+
     <div className="w-screen h-screen bg-gray-100 flex flex-col items-center">
-      <Navbar />
+      <Navbar option1="Sign In " />
       <LoginFrame />
     </div>
   );
