@@ -11,7 +11,7 @@ import useAuthStore from '../../../Store/useAuthStore'; // import the Zustand st
 
 export default function InputPassword({title} : {title : string}) {
   const [showPassword, setShowPassword] = React.useState(false);
-  const { password, setPassword } = useAuthStore(); // use the Zustand store
+  const {setPassword } = useAuthStore(); // use the Zustand store
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 

@@ -5,7 +5,7 @@ import useAuthStore from '../../../Store/useAuthStore';
 
 export default function InputEmail() {
 
-  const {Email , setEmail } = useAuthStore()
+  const {setEmail } = useAuthStore()
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setEmail(event.target.value);
     };

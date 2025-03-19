@@ -5,7 +5,7 @@ import useAuthStore from '../../../Store/useAuthStore';
 
 export default function Input() {
 
-  const {username , setUsername } = useAuthStore();
+  const { setUsername } = useAuthStore();
   // too line bala az zustand tabe setusername ro farakhani kardam va ba estefade az
   
   //toye line paiin value ro az input username gereftam va dar store zakhire kardam 
