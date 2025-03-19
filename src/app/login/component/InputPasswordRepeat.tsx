@@ -13,14 +13,14 @@ export default function InputPasswordRepeat({title} : {title : string}) {
   //prop gereftam chon mikhastan namayesh bedam ke title chi bood 
 
   const [showPassword, setShowPassword] = React.useState(false);
-  const {setPassword } = useAuthStore(); // use the Zustand store
+  const {setrepeatPassword } = useAuthStore(); // use the Zustand store
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
 
   // update the password in Zustand store
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value); 
+    setrepeatPassword(event.target.value); 
   };
 
   return (

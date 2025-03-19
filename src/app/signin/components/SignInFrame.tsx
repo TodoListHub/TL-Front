@@ -1,7 +1,11 @@
 
 
+import InputPasswordRepeat from "@/app/login/component/InputPasswordRepeat";
 import Input from "../../login/component/Input";
+import InputEmail from "../../login/component/InputEmail";
 import InputPassword from "../../login/component/InputPassword";
+
+
 import SubmitBotton from "../../login/component/SubmitBotton";
 
 
@@ -15,10 +19,10 @@ export default function SignInFrame ({title} : {title : string}) {
             </div>
             <hr className="text-teal-600 mb-2 border-2 w-[80%]" />
 
-            <Input label="User Name" />
+            <Input  />
             <InputPassword title="Password"/>
-            <InputPassword title="Repeat Password"/>
-            <Input label="Email " />
+            <InputPasswordRepeat title="Repeat Password" />
+            <InputEmail />
             <SubmitBotton />
             
             
