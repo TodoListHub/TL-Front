@@ -22,12 +22,7 @@ export default function TasksSectionFrame (){
             <Task CheckStatus={false} TaskText="ssnjcdn djnc jnc jd jdn njnjcnjncjn jcnjcndjcncn dcdncdc
                             ncd ndjncjdn cndc jdn jdn
                             ndjcndjn cdnj ndjncdjnc jdn dn" />
-            <Task CheckStatus={true} TaskText="ssnjcdn djnc jnc jd jdn njnjcnjncjn jcnjcndjcncn dcdncdc
-                            ncd ndjncjdn cndc jdn jdn
-                            ndjcndjn cdnj ndjncdjnc jdn dn" />
-            <Task CheckStatus={true} TaskText="ssnjcdn djnc jnc jd jdn njnjcnjncjn jcnjcndjcncn dcdncdc
-                            ncd ndjncjdn cndc jdn jdn
-                            ndjcndjn cdnj ndjncdjnc jdn dn" />
+           
                             
         </div>
     )
