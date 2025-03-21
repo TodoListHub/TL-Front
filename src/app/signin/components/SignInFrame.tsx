@@ -23,7 +23,7 @@ export default function SignInFrame ({title} : {title : string}) {
             <InputPassword title="Password"/>
             <InputPasswordRepeat title="Repeat Password" />
             <InputEmail />
-            <SubmitBotton />
+            <SubmitBotton title="signin" />
             
             
 

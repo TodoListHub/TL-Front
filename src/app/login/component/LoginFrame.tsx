@@ -18,7 +18,7 @@ export default function LoginFrame () {
             <Collapse />
             <Input  />
             <InputPassword title="password"  />
-            <SubmitBotton />
+            <SubmitBotton title="login" />
             
             
 
