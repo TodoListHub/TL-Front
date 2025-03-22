@@ -12,11 +12,7 @@ export default function SubmitButton({title} : {title : string}) {
 
     const onClickHandler = async () => {
 
-        // If any field is empty, show an alert
-        if (!username || !password || !email) {
-            alert("Please fill in all the fields!");
-            return;
-        }
+       
 
         // Create an object to send the form data
         const LogInFormInformation = {
@@ -36,8 +32,14 @@ export default function SubmitButton({title} : {title : string}) {
 
             case "login":   
 
+                // If any field is empty, show an alert
+                if (!username || !password ) {
+                    alert("Please fill in all the fields!");
+                    return;
+                }
+
                 try {
-                    const response = await axios.post("https://tl-backend-production.up.railway.app/signin", LogInFormInformation, {
+                    const response = await axios.post("https://tl-backend-production.up.railway.app/login", LogInFormInformation, {
                         headers: {
                             "Content-Type": "application/json"
                         }
@@ -70,6 +72,12 @@ export default function SubmitButton({title} : {title : string}) {
                 
             case "signin":
 
+                // If any field is empty, show an alert
+                if (!username || !password || !email) {
+                    alert("Please fill in all the fields!");
+                    return;
+                }
+
                 // for check the passwords
                 if(repeatPassword != password){
                     alert("The password do not match.")
@@ -77,7 +85,7 @@ export default function SubmitButton({title} : {title : string}) {
                 }
 
                 try {
-                    const response = await axios.post("https://tl-backend-production.up.railway.app/signup", SignInFormInformation, {
+                    const response = await axios.post("https://tl-backend-production.up.railway.app/signin", SignInFormInformation, {
                         headers: {
                             "Content-Type": "application/json"
                         }
