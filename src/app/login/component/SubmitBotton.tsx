@@ -125,8 +125,7 @@ export default function SubmitButton({title} : {title : string}) {
         <Button 
             onClick={onClickHandler}  
             sx={{ width: "50%", marginTop: 5, bgcolor: teal[600], "&:hover": { bgcolor: teal[400] } }} 
-            variant="contained"
-        >
+            variant="contained">
             Submit
         </Button>
     );

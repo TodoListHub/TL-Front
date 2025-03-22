@@ -62,7 +62,7 @@ export default function Navbar({ option1 }: { option1: string }) {
     default:
       menuItems = (
         <li>
-          <a onClick={RouteHandler} className="text-teal-600 bg-gray-200 mr-1 border">
+          <a className="text-teal-600 bg-gray-200 mr-1 border">
             {option1}
           </a>
         </li>

@@ -14,14 +14,11 @@ export default function LoginFrame () {
             </div>
             <hr className="text-teal-600 mb-2 border-2 w-[80%]" />
 
-            
             <Collapse />
             <Input  />
             <InputPassword title="password"  />
             <SubmitBotton title="login" />
             
-            
-
         </div>
     )
 }
