@@ -40,9 +40,9 @@ export default function SubmitButton({title} : {title : string}) {
 
                 try {
                     const response = await axios.post("https://tl-backend-production.up.railway.app/login", LogInFormInformation, {
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
+                        headers: {"Content-Type": "application/json"},
+                        withCredentials : true
+                        
                     });
                     // Show success message or response data message
                     alert(response.data.message || "Registration successful!");
@@ -88,7 +88,8 @@ export default function SubmitButton({title} : {title : string}) {
                     const response = await axios.post("https://tl-backend-production.up.railway.app/signin", SignInFormInformation, {
                         headers: {
                             "Content-Type": "application/json"
-                        }
+                        },
+                        withCredentials : true
                     });
                     // Show success message or response data message
                     alert(response.data.message || "Registration successful!");
