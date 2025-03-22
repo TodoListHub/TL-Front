@@ -25,8 +25,11 @@ export default function ForgetPasswordFrame () {
 
         try {
 
-            const response = await axios.get("https://tl-backend-production.up.railway.app/reset-password" , Email
-            )
+            const response = await axios.post("https://tl-backend-production.up.railway.app/reset-password" , Email , {
+                headers : {
+                    "Content-Type": "application/json"
+                }
+            })
             // Show success message or response data message
             alert(response.data.message || "Registration successful!");
             console.log("Registration successful!")
