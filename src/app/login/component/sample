@@ -1,138 +1,144 @@
 {
-    "apis": [
-      {
-        "method": "POST",
-        "path": "/signin",
-        "description": "Create a new user account",
-        "request": {
-          "body": {
-            "username": {
-              "type": "string",
-              "required": true,
-              "minLength": 5,
-              "pattern": "^[a-zA-Z0-9_]+$",
-              "message": "The username can only include letters, numbers, and underlines"
-            },
-            "email": {
-              "type": "string",
-              "required": true,
-              "format": "email",
-              "message": "Email format is not valid"
-            },
-            "password": {
-              "type": "string",
-              "required": true,
-              "minLength": 8,
-              "message": "The password must be at least 8 characters"
-            }
-          }
-        },
-        "response": {
-          "statusCode": 201,
-          "body": {
-            "message": "User created successfully"
-          }
-        }
-      },
-      {
-        "method": "POST",
-        "path": "/login",
-        "description": "Sign in with existing user credentials",
-        "request": {
-          "body": {
-            "email": {
-              "type": "string",
-              "required": true,
-              "format": "email",
-              "message": "Email format is not valid"
-            },
-            "password": {
-              "type": "string",
-              "required": true,
-              "minLength": 8,
-              "message": "The password must be at least 8 characters"
-            }
-          }
-        },
-        "response": {
-          "statusCode": 200,
-          "body": {
-            "message": "Sign in successful",
-            "token": "string"
-          }
-        }
-      },
-      {
-        "method": "POST",
-        "path": "/reset-password",
-        "description": "Reset user password",
-        "request": {
-          "body": {
-            "newPassword": {
-              "type": "string",
-              "required": true,
-              "minLength": 8,
-              "message": "The password must be at least 8 characters"
-            }
+  "apis": [
+    {
+      "method": "POST",
+      "path": "/signin",
+      "description": "Create a new user account",
+      "request": {
+        "body": {
+          "username": {
+            "type": "string",
+            "required": true,
+            "minLength": 5,
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "message": "The username can only include letters, numbers, and underlines"
           },
-          "headers": {
-            "Authorization": {
-              "type": "string",
-              "required": true,
-              "description": "Bearer JWT token"
-            }
-          }
-        },
-        "response": {
-          "statusCode": 200,
-          "body": {
-            "message": "Password reset successful"
-          }
-        }
-      },
-      {
-        "method": "GET",
-        "path": "/status",
-        "description": "Get the status of the authenticated user",
-        "request": {
-          "headers": {
-            "Authorization": {
-              "type": "string",
-              "required": true,
-              "description": "Bearer JWT token"
-            }
-          }
-        },
-        "response": {
-          "statusCode": 200,
-          "body": {
-            "user": {
-              "username": "string",
-              "email": "string"
-            }
+          "email": {
+            "type": "string",
+            "required": true,
+            "format": "email",
+            "message": "Email format is not valid"
+          },
+          "password": {
+            "type": "string",
+            "required": true,
+            "minLength": 8,
+            "message": "The password must be at least 8 characters"
           }
         }
       },
-      {
-        "method": "POST",
-        "path": "/reset-password",
-        "description": "Send a password reset email to the user",
-        "request": {
-          "body": {
-            "email": {
-              "type": "string",
-              "required": true,
-              "format": "email",
-              "message": "Email format is not valid"
-            }
+      "response": {
+        "statusCode": 201,
+        "body": {
+          "message": "User created successfully"
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "description": "Sign in with existing user credentials",
+      "request": {
+        "body": {
+          "username": {
+            "type": "string",
+            "optional": true,
+            "minLength": 5,
+            "message": "The username must be at least 5 characters"
+          },
+          "email": {
+            "type": "string",
+            "optional": true,
+            "format": "email",
+            "message": "Email format is not valid"
+          },
+          "password": {
+            "type": "string",
+            "required": true,
+            "minLength": 8,
+            "message": "The password must be at least 8 characters"
+          }
+        }
+      },
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "message": "Login in successful",
+          "token": "string"
+        }
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reset-password",
+      "description": "Reset user password",
+      "request": {
+        "body": {
+          "newPassword": {
+            "type": "string",
+            "required": true,
+            "minLength": 8,
+            "message": "The password must be at least 8 characters"
           }
         },
-        "response": {
-          "statusCode": 200,
-          "body": {
-            "message": "Reset password email sent"
+        "headers": {
+          "Authorization": {
+            "type": "string",
+            "required": true,
+            "description": "Bearer JWT token"
+          }
+        }
+      },
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "message": "Password reset successful"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/status",
+      "description": "Get the status of the authenticated user",
+      "request": {
+        "headers": {
+          "Authorization": {
+            "type": "string",
+            "required": true,
+            "description": "Bearer JWT token"
+          }
+        }
+      },
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "user": {
+            "username": "string",
+            "email": "string"
           }
         }
       }
-    ]
-  }
+    },
+    {
+      "method": "POST",
+      "path": "/reset-password",
+      "description": "Send a password reset email to the user",
+      "request": {
+        "body": {
+          "email": {
+            "type": "string",
+            "required": true,
+            "format": "email",
+            "message": "Email format is not valid"
+          }
+        }
+      },
+      "response": {
+        "statusCode": 200,
+        "body": {
+          "message": "Reset password email sent"
+        }
+      }
+    }
+  ]
+}
