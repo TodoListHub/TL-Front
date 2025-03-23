@@ -18,7 +18,7 @@ export default function AddTask (){
                             hover:bg-teal-600 text-2xl text-white flex justify-center items-center ">
                 Add
             </div>
-            <div className="w-20 h-12 mt-2 bg-teal-700 rounded-md shadow-2xl shadow-zinc-800 border-2 border-teal-700 hover:scale-105 duration-500
+            <div className="w-20 h-12 cursor-pointer mt-2 bg-teal-700 rounded-md shadow-2xl shadow-zinc-800 border-2 border-teal-700 hover:scale-105 duration-500
                             hover:bg-teal-600 text-2xl text-white flex justify-center items-center ">
                 Delete
             </div>

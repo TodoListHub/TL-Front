@@ -5,6 +5,7 @@ const useAuthStore = create((set) => ({
   password: "",
   repeatPassword: "",
   email: "",
+  addsection : false,
   
   setUsername: (username) => set({ username }),
 
@@ -13,6 +14,8 @@ const useAuthStore = create((set) => ({
   setrepeatPassword: (repeatPassword) => set({ repeatPassword }),
 
   setEmail: (email) => set({ email }),
+
+  setAddsection : (addsection)=> set({addsection}),
 
   reset: () => set({ username: "", password: "" , repeatPassword: "", email: "" }),
 
