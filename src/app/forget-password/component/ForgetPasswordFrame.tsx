@@ -3,11 +3,10 @@ import { Button, TextField } from "@mui/material";
 import { teal } from "@mui/material/colors";
 import useAuthStore from "@/Store/useAuthStore";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 export default function ForgetPasswordFrame () {
 
     const {email , setEmail} = useAuthStore();
-    const router = useRouter()
+    
 
     const onChangehandler = (event: React.ChangeEvent<HTMLInputElement>)=>{
         setEmail(event.target?.value)
@@ -33,7 +32,7 @@ export default function ForgetPasswordFrame () {
             // Show success message or response data message
             alert(response.data.message || "Registration successful!");
             console.log("Registration successful!")
-            router.push("/home")
+            return
             
         } catch (error) {
 
