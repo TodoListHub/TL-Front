@@ -5,7 +5,7 @@ import { useState } from 'react';
 import TaskEditSection from './TaskEditSection';
 
 
-export default function Task( {TaskText , CheckStatus} : {TaskText : string , CheckStatus : boolean}){
+export default function Task( {TaskText , CheckStatus , onDelete  } : {TaskText : string , CheckStatus : boolean , onDelete : ()=> void}){
 
     const [isEdit , setisEdit ] = useState(false);
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -23,12 +23,13 @@ export default function Task( {TaskText , CheckStatus} : {TaskText : string , Ch
 
             <div className='h-[130px] w-[10%]'></div>
 
-            <div className="h-[130px] w-[10%] text-2xl p-2 flex flex-col items-center justify-center border-l ">
+            <div className="h-[130px] w-[10%] text-2xl pt-3 pb-3 flex flex-col items-center justify-center border-l ">
 
-                    <img onClick={onCliskhandler} className="w-10 h-10 mb-2" src="/edit-3-svgrepo-com.svg" alt="salam " />
+                    <img onClick={onCliskhandler} className="w-8 h-8 " src="/edit-3-svgrepo-com.svg" alt="salam " />
                     <Checkbox {...label} checked={CheckStatus} sx={{'& .MuiSvgIcon-root': { fontSize: 40 } ,
                                                              color : teal[600], 
                                                              '&.Mui-checked': {color : teal[600]} }} />
+                    <img onClick={onDelete} className="w-8 h-8 " src="/delete-2-svgrepo-com.svg" alt="salam " />
 
             </div>
 
