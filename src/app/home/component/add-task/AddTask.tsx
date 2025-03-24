@@ -8,7 +8,6 @@ export default function AddTask (){
 
     const onClickhandler = ()=>{
         setAddsection(!addsection)
-        console.log("salam")
     }
 
     return(
