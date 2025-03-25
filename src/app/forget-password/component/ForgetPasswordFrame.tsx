@@ -3,11 +3,9 @@ import { Button, TextField } from "@mui/material";
 import { teal } from "@mui/material/colors";
 import useAuthStore from "@/Store/useAuthStore";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 export default function ForgetPasswordFrame () {
 
     const {email , setEmail} = useAuthStore();
-    const router = useRouter()
 
     const onChangehandler = (event: React.ChangeEvent<HTMLInputElement>)=>{
         setEmail(event.target?.value)
@@ -24,16 +22,15 @@ export default function ForgetPasswordFrame () {
         }
 
         try {
-
             const response = await axios.post("https://tl-backend-production.up.railway.app/reset-password" , Email , {
-                headers : {
-                    "Content-Type": "application/json"
-                }
+                headers : {"Content-Type": "application/json"},
+                withCredentials:true
+
             })
             // Show success message or response data message
             alert(response.data.message || "Registration successful!");
             console.log("Registration successful!")
-            router.push("/reset-password")
+            return
             
             
         } catch (error) {

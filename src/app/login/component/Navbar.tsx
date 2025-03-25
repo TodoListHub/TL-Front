@@ -32,6 +32,7 @@ export default function Navbar({ option1 }: { option1: string }) {
     case "/login":
     case "/forget-password":
     case "/loginwithemail":
+      case "/reset-password":
       menuItems = (
         <>
           <li>

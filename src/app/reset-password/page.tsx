@@ -4,8 +4,8 @@ import ResetPasswordFrame from "./component/ResetPasswordFrame";
 export default function ResetPasswordMainFrame(){
 
     return(
-        <div className="w-screen h-screen bg-gray-100 flex place-items-center justify-center">
-            <Navbar option1="login"/>
+        <div className="w-screen h-screen bg-gray-100 flex flex-col place-items-center ">
+            <Navbar option1="signin"/>
             <ResetPasswordFrame />
 
         </div>
