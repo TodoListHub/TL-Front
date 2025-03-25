@@ -3,7 +3,7 @@ import axios from "axios";
 
 interface Task {
     id: number;
-    CheckStatus: boolean;
+    status: boolean;
     title: string;
 }
 

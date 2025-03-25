@@ -3,15 +3,58 @@ import {teal } from '@mui/material/colors';
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import TaskEditSection from './TaskEditSection';
+import axios, { AxiosError } from 'axios';
+import { ApiError } from 'next/dist/server/api-utils';
+import useFetchTask from "../../../../Store/useFetchTask";
 
 
-export default function Task( {TaskText , taskId  , CheckStatus , onDelete  } : {TaskText : string , taskId: number,  CheckStatus : boolean , onDelete : ()=> void}){
+export default function Task( {TaskText , taskId , CheckStatus , onDelete  } : {TaskText : string , taskId: number,  CheckStatus : boolean , onDelete : ()=> void}){
 
+    const {  fetchTasks } = useFetchTask()
     const [isEdit , setisEdit ] = useState(false);
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
     const onCliskhandler = ()=> {
         setisEdit(!isEdit)
+    }
+
+    const onClickhandlerStatus = async ()=>{
+
+        console.log(CheckStatus)
+        console.log(taskId)
+        try {
+            // Sending PUT request to update the task
+            const response = await axios.put(`https://tl-backend-production.up.railway.app/update-status/${taskId}`, // Replace with actual API URL
+              {},
+              {
+                headers: {
+                  "Content-Type": "application/json"},
+                  withCredentials: true,
+                
+              }
+            );
+
+
+            console.log(response.data); // Log server response
+            alert("Task updated successfully!"); // Success message
+            fetchTasks()
+            
+          } catch (error) {
+            // Check if it's an AxiosError and handle accordingly
+            if (axios.isAxiosError(error)) {
+              const axiosError = error as AxiosError<ApiError>; // Type the error as AxiosError
+              const errorMessage =
+                axiosError.response?.data?.message ||
+                "Failed to update task. Please try again.";
+              const errorCode = axiosError.response?.status;
+      
+              console.error("Error updating task:", error);
+              alert(`Error: ${errorMessage} (Code: ${errorCode || "Unknown"})`);
+            } else {
+              console.error("Unexpected error:", error);
+              alert("An unexpected error occurred. Please try again.");
+            }
+          }
     }
 
     return(
@@ -26,7 +69,7 @@ export default function Task( {TaskText , taskId  , CheckStatus , onDelete  } : 
             <div className="h-[130px] w-[10%] text-2xl pt-3 pb-3 flex flex-col items-center justify-center border-l ">
 
                     <img onClick={onCliskhandler} className="w-8 h-8 " src="/edit-3-svgrepo-com.svg" alt="salam " />
-                    <Checkbox {...label} checked={CheckStatus} sx={{'& .MuiSvgIcon-root': { fontSize: 40 } ,
+                    <Checkbox onClick={onClickhandlerStatus} {...label} checked={CheckStatus} sx={{'& .MuiSvgIcon-root': { fontSize: 40 } ,
                                                              color : teal[600], 
                                                              '&.Mui-checked': {color : teal[600]} }} />
                     <img onClick={onDelete} className="w-8 h-8 " src="/delete-2-svgrepo-com.svg" alt="salam " />
