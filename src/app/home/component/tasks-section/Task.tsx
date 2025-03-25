@@ -5,7 +5,7 @@ import { useState } from 'react';
 import TaskEditSection from './TaskEditSection';
 
 
-export default function Task( {TaskText , CheckStatus , onDelete  } : {TaskText : string , CheckStatus : boolean , onDelete : ()=> void}){
+export default function Task( {TaskText , taskId  , CheckStatus , onDelete  } : {TaskText : string , taskId: number,  CheckStatus : boolean , onDelete : ()=> void}){
 
     const [isEdit , setisEdit ] = useState(false);
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -33,7 +33,7 @@ export default function Task( {TaskText , CheckStatus , onDelete  } : {TaskText 
 
             </div>
 
-            <TaskEditSection isEdit={isEdit} onClickhandler={onCliskhandler} />
+            <TaskEditSection taskId={taskId} isEdit={isEdit} onClickhandler={onCliskhandler} />
 
             
 
