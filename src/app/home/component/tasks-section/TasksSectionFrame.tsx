@@ -19,9 +19,15 @@ export default function TasksSectionFrame() {
             });
 
             fetchTasks(); // Fetch the updated task list after deletion
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error("Error deleting task:", error);
-            alert(`Failed to delete task: ${error.message || "Unknown error"}`);
+
+            let errorMessage = "Unknown error";
+            if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+
+            alert(`Failed to delete task: ${errorMessage}`);
         }
     };
 

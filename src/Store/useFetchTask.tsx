@@ -19,10 +19,15 @@ const useTaskStore = create<TaskStore>((set) => ({
         try {
             const response = await axios.get("https://tl-backend-production.up.railway.app/get-tasks", { withCredentials: true });
             set({ tasks: response.data });
-        } catch (error: any) {  
-            // Set `error` as `any` so we can access the `message` property
+        } catch (error: unknown) {  
             console.error("Error fetching tasks:", error);
-            alert(`Failed to fetch tasks: ${error.message || "Unknown error"}`);  // Show error message using alert
+
+            let errorMessage = "Unknown error";
+            if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+
+            alert(`Failed to fetch tasks: ${errorMessage}`);  // Show error message using alert
         }
     }
 }));
