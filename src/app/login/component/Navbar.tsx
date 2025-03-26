@@ -22,7 +22,7 @@ export default function Navbar({ option1 }: { option1: string }) {
 
   const RouteHandlerEmail = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    router.push("/loginwithemail");
+    router.push("/login/withEmail");
   };
 
 
@@ -30,9 +30,11 @@ export default function Navbar({ option1 }: { option1: string }) {
   let menuItems;
   switch (pathname) {
     case "/login":
+    case "/login/withEmail":
     case "/forget-password":
     case "/loginwithemail":
-      case "/reset-password":
+    case "/reset-password":
+    
       menuItems = (
         <>
           <li>

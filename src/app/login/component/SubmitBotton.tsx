@@ -18,7 +18,14 @@ export default function SubmitButton({title} : {title : string}) {
         const LogInFormInformation = {
             username: username, 
             password: password, 
-        };          
+        };        
+        
+        const LogInWithEmailFormInformation = {
+            email: email, 
+            password: password, 
+        };        
+
+
 
         const SignInFormInformation = {
             username: username, 
@@ -40,6 +47,46 @@ export default function SubmitButton({title} : {title : string}) {
 
                 try {
                     const response = await axios.post("https://tl-backend-production.up.railway.app/login", LogInFormInformation, {
+                        headers: {"Content-Type": "application/json"},
+                        withCredentials : true
+                        
+                    });
+                    // Show success message or response data message
+                    alert(response.data.message || "Registration successful!");
+                    console.log("Registration successful!")
+                    router.push("/home")
+                    
+                } catch (error) {
+                    console.log("❌ Error sending request:");
+                    
+                    // Use type assertion to cast 'error' to AxiosError
+                    if (axios.isAxiosError(error)) {
+                        // Extract detailed error response
+                        const errorDetails = error.response?.data || {}; // Extract error details
+                        console.log("Error details:", errorDetails);
+        
+                        // Display error message if available
+                        const errorMessage = errorDetails.error?.[0]?.msg || errorDetails.message || "An issue occurred, please try again.";
+                        
+                        alert(`Error: ${errorMessage}`);
+                    } else {
+                        console.log("Server error:", error);
+                        alert("There was an issue connecting to the server. Please try again.");
+                    }
+                }
+                break
+
+
+            case "withEmail":   
+
+                // If any field is empty, show an alert
+                if (!email || !password ) {
+                    alert("Please fill in all the fields!");
+                    return;
+                }
+
+                try {
+                    const response = await axios.post("https://tl-backend-production.up.railway.app/login", LogInWithEmailFormInformation, {
                         headers: {"Content-Type": "application/json"},
                         withCredentials : true
                         
