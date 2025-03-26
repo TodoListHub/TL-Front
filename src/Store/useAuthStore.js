@@ -8,7 +8,7 @@ const useAuthStore = create((set) => ({
   addsection : false,
   newTaskText : "",
   totalCount : 0,
-  truecCount : 0,
+  trueCount : 0,
   falseCount : 0,
   
   setUsername: (username) => set({ username }),
@@ -23,9 +23,12 @@ const useAuthStore = create((set) => ({
 
   setNewTaskText : (newTaskText)=> set({newTaskText}),
 
-  increaseTrueTask : (truecCount)=>({truecCount} + 1 , {totalCount} + 1),
+  increaseTrueTask : (trueCount)=>set({trueCount} + 1 ),
 
-  increaseTrueTask : (falseCount)=>({falseCount} + 1 )
+  increaseFalseTask : (falseCount)=>set({falseCount} + 1 ),
+
+  increaseTotalTask : (totalCount)=>set({totalCount} + 1),
+
 
   reset: () => set({ username: "", password: "" , repeatPassword: "", email: "" }),
   
