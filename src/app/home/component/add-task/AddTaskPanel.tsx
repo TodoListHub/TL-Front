@@ -9,7 +9,7 @@ import useInformationStore from "../../../../Store/useUserInformation"
 export default function AddTaskPanel() {
     const { addsection, newTaskText, setNewTaskText } = useAuthStore();
     const { fetchTasks } = useFetchTask(); // Fetch tasks after adding a new one
-    const { increaseTotalTask } = useInformationStore()
+    const { increaseTotalTask , increaseFalseTask } = useInformationStore()
 
     // Storing new task text when entered
     const onChangehandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -35,6 +35,7 @@ export default function AddTaskPanel() {
             setNewTaskText(""); // Clear input field
             fetchTasks(); // Refresh task list
             increaseTotalTask()
+            increaseFalseTask()
         } catch (error: unknown) {
             console.error("Error adding task:", error);
 

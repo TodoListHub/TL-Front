@@ -14,6 +14,7 @@ interface AuthState {
 
   setUser: (username: string, email: string) => void;
   setInitialCounts: (total: number, completed: number, pending: number) => void;
+  decreaseTotalTask: () => void;
   increaseTotalTask: () => void;
   increaseTrueTask: () => void;
   increaseFalseTask: () => void;
@@ -46,18 +47,21 @@ const useInformationStore = create<AuthState>((set) => ({
       falseCount: pending,
     })),
 
-  // Increase total task count
+  // Increase & decrease total task count
   increaseTotalTask: () =>
     set((state) => ({ totalCount: state.totalCount + 1 })),
 
-  // Increase completed task count
+  decreaseTotalTask: () =>
+    set((state) => ({ totalCount: state.totalCount - 1 })),
+
+  // Increase & decrease completed task count
   increaseTrueTask: () =>
     set((state) => ({ trueCount: state.trueCount + 1 })),
 
   decreaseTrueTask: () =>
     set((state) => ({ trueCount: state.trueCount - 1 })),
 
-  // Increase incomplete task count
+  // Increase & decrease incomplete task count
   increaseFalseTask: () =>
     set((state) => ({ falseCount: state.falseCount + 1 })),
 
