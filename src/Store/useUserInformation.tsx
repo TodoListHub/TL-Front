@@ -17,11 +17,13 @@ interface AuthState {
   increaseTotalTask: () => void;
   increaseTrueTask: () => void;
   increaseFalseTask: () => void;
+  decreaseTrueTask: () => void;
+  decreaseFalseTask: () => void;
   resetCounts: () => void;
 }
 
 // Create Zustand Store with TypeScript
-const useAuthStore = create<AuthState>((set) => ({
+const useInformationStore = create<AuthState>((set) => ({
   user: {
     username: "",
     email: "",
@@ -52,9 +54,15 @@ const useAuthStore = create<AuthState>((set) => ({
   increaseTrueTask: () =>
     set((state) => ({ trueCount: state.trueCount + 1 })),
 
+  decreaseTrueTask: () =>
+    set((state) => ({ trueCount: state.trueCount - 1 })),
+
   // Increase incomplete task count
   increaseFalseTask: () =>
     set((state) => ({ falseCount: state.falseCount + 1 })),
+
+  decreaseFalseTask: () =>
+    set((state) => ({ falseCount: state.falseCount - 1 })),
 
   // Reset task statistics
   resetCounts: () =>
@@ -65,4 +73,4 @@ const useAuthStore = create<AuthState>((set) => ({
     })),
 }));
 
-export default useAuthStore;
+export default useInformationStore;

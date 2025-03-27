@@ -6,11 +6,13 @@ import TaskEditSection from './TaskEditSection';
 import axios, { AxiosError } from 'axios';
 import { ApiError } from 'next/dist/server/api-utils';
 import useFetchTask from "../../../../Store/useFetchTask";
+import useInformationStore from "../../../../Store/useUserInformation"
 
 
 export default function Task( {TaskText , taskId , CheckStatus , onDelete  } : {TaskText : string , taskId: number,  CheckStatus : boolean , onDelete : ()=> void}){
 
     const {  fetchTasks } = useFetchTask()
+    const {increaseTrueTask , increaseFalseTask , decreaseFalseTask , decreaseTrueTask} = useInformationStore()
     const [isEdit , setisEdit ] = useState(false);
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -20,8 +22,8 @@ export default function Task( {TaskText , taskId , CheckStatus , onDelete  } : {
 
     const onClickhandlerStatus = async ()=>{
 
-        console.log(CheckStatus)
-        console.log(taskId)
+        
+
         try {
             // Sending PUT request to update the task
             const response = await axios.put(`https://tl-backend-production.up.railway.app/update-status/${taskId}`, // Replace with actual API URL
@@ -33,6 +35,14 @@ export default function Task( {TaskText , taskId , CheckStatus , onDelete  } : {
                 
               }
             );
+
+            if(CheckStatus == true){
+              increaseFalseTask()
+              decreaseTrueTask()
+            } else if (CheckStatus == false){
+              increaseTrueTask()
+              decreaseFalseTask()
+            }
 
 
             console.log(response.data); // Log server response

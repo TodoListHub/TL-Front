@@ -4,10 +4,12 @@ import useFetchTask from "../../../../Store/useFetchTask"; // Importing Task Sto
 import { Button } from "@mui/material";
 import { teal } from "@mui/material/colors";
 import axios from "axios";
+import useInformationStore from "../../../../Store/useUserInformation"
 
 export default function AddTaskPanel() {
     const { addsection, newTaskText, setNewTaskText } = useAuthStore();
     const { fetchTasks } = useFetchTask(); // Fetch tasks after adding a new one
+    const { increaseTotalTask } = useInformationStore()
 
     // Storing new task text when entered
     const onChangehandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -32,6 +34,7 @@ export default function AddTaskPanel() {
             alert("Task added successfully!");
             setNewTaskText(""); // Clear input field
             fetchTasks(); // Refresh task list
+            increaseTotalTask()
         } catch (error: unknown) {
             console.error("Error adding task:", error);
 
