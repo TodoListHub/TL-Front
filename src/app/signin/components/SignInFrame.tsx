@@ -17,7 +17,7 @@ export default function SignInFrame ({title} : {title : string}) {
                         sm:h-[460px] sm:w-[420px]
                         md:h-[480px] md:w-[500px]
                         lg:h-[480px] lg:w-[500px]
-                        mt-[50px] md:mt-0
+                        mt-[50px] md:mt-[40px] lg:mt-0
                       bg-white opacity-90 shadow-2xl border-zinc-300 rounded-xl flex flex-col items-center">
             <div className=" text-teal-600  w-full h-[70px] flex justify-center items-center rounded-t-xl text-2xl hover:scale-95 hover:rounded-xl duration-500">
                 {title}
