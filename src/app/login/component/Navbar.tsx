@@ -73,7 +73,7 @@ export default function Navbar({ option1 }: { option1: string }) {
   }
 
   return (
-    <div className="navbar bg-gray-100 w-[95%] hover:scale-[99%] duration-500 mb-24 mt-4">
+    <div className="hidden md:flex navbar bg-gray-100 w-[95%] hover:scale-[99%] duration-500 md:mb-10 lg:mb-24 mt-4">
       <div className="flex-1">
         <div className="border p-2 rounded-md bg-gray-100 text-teal-600 text-2xl">Todo-List</div>
       </div>
