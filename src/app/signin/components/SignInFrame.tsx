@@ -13,7 +13,12 @@ export default function SignInFrame ({title} : {title : string}) {
 
     return( 
 
-        <div className="h-[480px] w-[500px] bg-white opacity-90 shadow-2xl border-zinc-300 rounded-xl flex flex-col items-center  ">
+        <div className="h-[450px]    w-[300px]
+                        sm:h-[460px] sm:w-[420px]
+                        md:h-[480px] md:w-[500px]
+                        lg:h-[480px] lg:w-[500px]
+                        mt-[50px] md:mt-0
+                      bg-white opacity-90 shadow-2xl border-zinc-300 rounded-xl flex flex-col items-center">
             <div className=" text-teal-600  w-full h-[70px] flex justify-center items-center rounded-t-xl text-2xl hover:scale-95 hover:rounded-xl duration-500">
                 {title}
             </div>

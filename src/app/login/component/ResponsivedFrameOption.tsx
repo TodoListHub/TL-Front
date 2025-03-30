@@ -54,9 +54,9 @@ export default function ResponsiveFrameOption({ option1 }: { option1: string }) 
 
     case "/signin":
       menuItems = (
-        <li>
+        <li className="relative w-[300px] sm:w-[420px]">
           <a onClick={() => handleClick("login", RouteHandlerLogin)}
-             className={`text-teal-600 px-4 py-2 rounded-md border block text-center duration-500 ${clicked["login"] ? "bg-gray-300" : "hover:bg-gray-300"}`}>
+            className={`text-teal-600 shadow-2xl h-12 flex text-xl shadow-gray-800 bg-white px-4 py-1 rounded-sm b justify-center items-center duration-500 ${clicked["login"] ? "bg-teal-50 scale-98" : "hover:bg-teal-50 hover:scale-98"}`}>
             {option1}
           </a>
         </li>
