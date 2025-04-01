@@ -7,6 +7,7 @@ import AddTask from "./component/add-task/AddTask";
 import AddTaskPanel from "./component/add-task/AddTaskPanel";
 import InformationSectionFrame from "./component/information-section/InformationSectionFrame";
 import TasksSectionFrame from "./component/tasks-section/TasksSectionFrame";
+import AddTaskPanelResponsive from "./component/add-task/AddTaskPanelResponsive";
 
 export default function HomeFrame() {
 
@@ -34,11 +35,24 @@ export default function HomeFrame() {
     }, []);
 
     return user.username ? ( 
-        <div className="w-screen h-screen bg-gray-100 flex place-items-center justify-center">
-            <TasksSectionFrame />
-            <AddTask />
-            <InformationSectionFrame />
-            <AddTaskPanel />
+
+        <div>
+
+            <div className="w-screen h-screen bg-gray-100 hidden lg:flex place-items-center justify-center">
+                <TasksSectionFrame />
+                <AddTask />
+                <InformationSectionFrame />
+                <AddTaskPanel />
+            </div>
+
+            <div className="w-screen h-screen bg-gray-100 lg:hidden flex flex-col justify-center overflow-y-auto">
+                <InformationSectionFrame />
+                <AddTaskPanelResponsive />
+                <TasksSectionFrame />
+
+                
+            </div>
+            
         </div>
     ) : (
         <div className="w-screen h-screen flex items-center justify-center">

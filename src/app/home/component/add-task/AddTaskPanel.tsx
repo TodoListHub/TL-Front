@@ -63,7 +63,7 @@ export default function AddTaskPanel() {
             />
 
             {addsection && (
-                <Button sx={{ width: "70%", marginTop: 5, background: teal[400] }} variant="contained" onClick={onClickHandler}>
+                <Button sx={{ width: "70%", marginTop: 5 , marginBottom : 2, background: teal[400] }} variant="contained" onClick={onClickHandler}>
                     Add task
                 </Button>
             )}

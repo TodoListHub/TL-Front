@@ -70,7 +70,7 @@ export default function Task( {TaskText , taskId , CheckStatus , onDelete  } : {
     return(
         <div className={`w-[99%] ${isEdit ? "h-[230px]" : "h-[130px]"} flex flex-wrap bg-teal-50 rounded-2xl shadow-2xl shadow-zinc-500 pb-1 mb-1 hover:scale-99 hover:bg-teal-50 duration-300`}>
 
-            <p className="h-[130px] w-[80%] overflow-y-auto text-teal-900 text-2xl p-2 flex items-center"> 
+            <p className="h-[130px] w-[80%] overflow-y-auto text-teal-900 text-xl md:text-2xl lg:text-2xl p-2 flex items-center"> 
                 {TaskText}
             </p>
 

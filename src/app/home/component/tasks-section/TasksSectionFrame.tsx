@@ -42,7 +42,8 @@ export default function TasksSectionFrame() {
     };
 
     return (
-        <div className="w-[65%] h-[90%] bg-white opacity-90 shadow-2xl border-zinc-300
+
+        <div className="w-[100%] lg:w-[65%] h-[90%] bg-white opacity-90 shadow-2xl border-zinc-300
                         rounded-xl overflow-y-auto flex flex-col items-center p-1 pt-2">
             {tasks.map((task) => (
                 <Task key={task.id} taskId={task.id} CheckStatus={task.status} TaskText={task.title} onDelete={() => deleteTask(task.id , task.status)} />

@@ -79,16 +79,16 @@ export default function TaskEditSection({ isEdit, taskId,  onClickhandler, }: { 
       <div className={`${isEdit ? "w-full h-[100px] items-center flex" : "hidden"}`}>
         <textarea
           onChange={onChangehandler}
-          className="w-[60%] max-h-[80%] p-2 mt-2.5 ml-2 text-teal-700 bg-white border border-zinc-300 rounded-2xl"
+          className=" w-[70%] lg:w-[60%] max-h-[80%] p-2 mt-2.5 ml-2 text-teal-700 bg-white border border-zinc-300 rounded-2xl"
           name="edit task text"
           id="textarea"
         ></textarea>
 
-        <div className="w-[30%] h-full flex items-center justify-center text-xl text-teal-800">
+        <div className="hidden lg:flex w-[30%] h-full items-center justify-center text-xl text-teal-800">
           - Enter the edited text <br />- and click Ok button
         </div>
 
-        <div className="w-[10%] h-full flex justify-center items-center">
+        <div className="w-[30%] lg:w-[10%] h-full flex justify-center items-center">
           <input
             onClick={onClickhandlerMain}
             className="w-[50%] h-[40%] bg-teal-600 text-teal-100 font-bold rounded-md hover:scale-105"
